@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pages containing {{ name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+
+<body>
+<h1>Oops! Looks like the page doesn't exist anymore</h1> 
+<a href="{{ url_for('index') }}"><p>Click Here</a> To go to the Home Page</p>
+<p>Have a cat for your troubles!</p>
+<img alt="Cat" style="width:500px" class="cat" src="{{ url_for('static', filename='images/cat1.jpg') }}">
+    
+</body>
+</html>

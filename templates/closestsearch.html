@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pages containing {{ name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+
+<body>
+    <h1>The Better Search Engine<br>
+    </h1>
+    <p>With fuzzy searching and history!</p>
+    <h2>
+    <h2>
+    <h2>
+    <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.png') }}">
+    Search Result List of: {{ name }}
+    </h2>
+    <form action='/bsearch' method="POST">
+        <input type="text" name="searchtext" id="searchtext" placeholder="Search" style="width:164px;"/>
+        <button id='search' type="submit" style="width:5%;min-width:75px;" onclick="updateCookie()">Search</button>
+    </form>
+    <p>Your word was not found in the index. The closest words found are: {{closestwords}}</p>
+    <p>{{ countries|length }} Titles</p>
+    <ul class="movie-list">
+        {% for country in countries %}  {# Iterate through the movies variable #}
+        <li>{{ country.Country }} - {{ country.Link }}
+            <span class="float-right">
+                <a class="imdb" href="https://en.wikipedia.org/wiki/{{ country.Country }}" target="_blank" title="Find this movie on IMDb">IMDb</a>
+            </span>
+        </li>  
+        {% endfor %}  {# Use the endfor tag to end the for statement #}
+    </ul>
+    <img alt="Walking Totoro" class="totoro" src="{{ url_for('static', filename='images/totoro.gif') }}">
+    <footer>
+        <small>&copy; 2023 <a href="http://helloflask.com/book/3">ITEC 4020</a></small>
+    </footer>
+</body>
+</html>

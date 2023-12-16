@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pages containing {{ name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+
+<body>
+    <h1>The Better Search Engine<br>
+    </h1>
+    <p>With fuzzy searching and history!</p>
+    
+    <h2>
+    <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.png') }}">
+    List of Recent Search Words
+    </h2>
+    <form action='/bsearch' method="POST">
+        <input type="text" name="searchtext" id="searchtext" placeholder="Search" style="width:164px;"/>
+        <button id='search' type="submit" style="width:5%;min-width:75px;">Search</button>
+    </form>
+
+
+    <p>{{ searches|length }} Keywords</p>
+    <ul class="search-list">
+        {% for search in searches %}  {# Iterate through the search history#}
+        <li>{{ search.Search }}
+            
+        </li>  
+        {% endfor %}  {# Use the endfor tag to end the for statement #}
+    </ul>
+    <img alt="Walking Totoro" class="totoro" src="{{ url_for('static', filename='images/totoro.gif') }}">
+    <footer>
+        <small>&copy; 2023 <a href="http://helloflask.com/book/3">ITEC 4020</a></small>
+    </footer>
+</body>
+</html>
