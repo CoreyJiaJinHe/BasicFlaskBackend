@@ -30,6 +30,10 @@ def search_page(keyword):
     pages=directsearch(keyword)        
     return render_template('results.html', name=keyword, countries=pages)
 
+@app.route('/search/')
+def default_search_page():
+    return render_template('results.html')
+
 #The Better Search that has fuzzy and history
 @app.route('/bsearch/', methods=['GET','POST'])
 def bsearch():
