@@ -25,6 +25,15 @@ def ball_page():
 def secret_page():
     return render_template ("secretpage.html")
 
+@app.route('/login/')
+def login():
+    return render_template('login.html')
+
+@app.route('/successlog',methods=['GET'])
+def successfullogin():
+    return render_template('successfullogin.html')
+
+
 
 # the function for load the inverted indexes
 def get_inverted_index():
@@ -144,20 +153,3 @@ def findclosest(keyword):
                     pairedword[count]=[word,distance]
                     break
     return pairedword
-
-@app.route('/login/')
-def login():
-    return render_template('login.html')
-
-@app.route('/successlog',methods=['GET'])
-def successfullogin():
-    return render_template('successfullogin.html')
-
-#for when secretpage is linked to the indeex html
-#@app.route('/secretpage/')
-#def secretpage():
-#   return render_template('secretpage.html')
-
-@app.route('/ball/')
-def ball():
-    return render_template('ball.html')
