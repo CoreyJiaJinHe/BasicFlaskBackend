@@ -33,6 +33,9 @@ def login():
 def successfullogin():
     return render_template('successfullogin.html')
 
+@app.route('/shop/')
+def shop_page():
+    return render_template('shoppinglist.html')
 
 
 # the function for load the inverted indexes
