@@ -17,6 +17,15 @@ def index():
 def not_found(e):
     return render_template ("404.html", index='index.html')
 
+@app.route("/ball/")
+def ball():
+    return render_template ("ball.html")
+
+@app.route("/secretpage/")
+def secret():
+    return render_template ("secretpage.html")
+
+
 # the function for load the inverted indexes
 def get_inverted_index():
     with open("./index/inverted_index.json") as g:
