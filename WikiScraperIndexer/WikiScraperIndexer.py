@@ -2,7 +2,7 @@
 #ID: 217253527
 
 #There are del statements throughout the code to save memory. My laptop couldn't handle it otherwise.
-
+#Repurposed from assignment 3 for group project's wiki files and index-json file.
 
 #Importing Python libraries
 import bs4 as BeautifulSoup
@@ -88,11 +88,12 @@ del BeautifulSoup
 del html
 
 #display first paragraph descriptions
-def print_page_descriptions():
+'''def print_page_descriptions():
     for count in range(len(descriptioncontent)):
         print(descriptioncontent[count])
         print("\n")
 print_page_descriptions()
+'''
 
 #create inverted word index
 firstline=""
@@ -129,12 +130,13 @@ for k in uselesswords:
 del uselesswords
 
 #make an index of occurrence frequency using the inverted index
+'''
 wordcount=dict()
 for k in wordindex:
     wordindexvaluelist=(wordindex[k])
     wordcount[k]=len(wordindexvaluelist)
     del wordindexvaluelist
-
+'''
 
 
 with open('./index/inverted_index.json','w') as fp:
