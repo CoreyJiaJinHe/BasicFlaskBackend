@@ -148,3 +148,7 @@ def successfullogin():
 #@app.route('/secret/')
 #def secret():
 #   return render_template('secretpage.html')
+
+@app.route('/ball/')
+def ball():
+    return render_template('ball.html')
