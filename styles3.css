@@ -1,0 +1,39 @@
+*{
+    background-color:rgb(255, 211, 277);
+    font-family:'Georgia';
+}
+
+h1 {
+    font-size: 100px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+h3 {
+    font-size: 40px; 
+}
+
+h4 {
+    font-size: 38px;
+}
+
+.titlepage {
+    color:deeppink;
+    background-color:aqua;
+}
+.undertitle {
+    color:chartreuse;
+    background-color:darkorange;
+}
+
+.word1 {
+    color:deepskyblue;
+    background-color:lightcoral;
+}
+
+.word2 {
+    color:fuchsia;
+    background-color:yellow; 
+}
