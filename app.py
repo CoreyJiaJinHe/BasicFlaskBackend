@@ -143,3 +143,8 @@ def login():
 @app.route('/successlog',methods=['GET'])
 def successfullogin():
     return render_template('successfullogin.html')
+
+#for when secretpage is linked to the indeex html
+#@app.route('/secret/')
+#def secret():
+#   return render_template('secretpage.html')
