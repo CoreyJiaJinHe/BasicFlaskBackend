@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!--Priyum Mistry-->
+
+<head>
+  <title>Website</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    .content {
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+    }
+	.center {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 50%;
+	}
+	h1 {
+      text-shadow: 1px 1px 2px #000000;
+    }
+	p {
+      text-shadow: 0px 0px 1px #000000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Website</h1>
+  <div class="content">
+    <p><u>This is a website.</u></p>
+    <img src="https://i.insider.com/6340783eb3e94d0019781b4e" alt="Man on a computer" class="center">
+	<br>
+    <form action="/successlog" method="GET">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" placeholder="Enter your username"><br><br>
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" placeholder="Enter your password"><br><br>
+      <input type="submit" value="Submit">
+    </form>    <button onclick="goBack()">Go Back</button>
+
+
+	<br>
+	<img src="https://www.nyse.com/publicdocs/images/tile_media_trading_desk_employee.png" alt="Woman on a computer" class="center">
+  </div>
+
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>

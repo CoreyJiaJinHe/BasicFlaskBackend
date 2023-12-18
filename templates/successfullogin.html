@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<!--Priyum Mistry-->
+
+<head>
+  <title>Logged In</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}" type="text/css">
+
+</head>
+<body>
+  <h1>Login Successful</h1>
+  <p>You have been successfully logged in.</p>
+  <button onclick="goBack()">Go Back</button>
+  
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>

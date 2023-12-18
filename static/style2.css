@@ -3,32 +3,18 @@ body {
     max-width: 580px;
     font-size: 14px;
     font-family: Helvetica, Arial, sans-serif;
-    background-image: url('https://cdn.vox-cdn.com/thumbor/DE0CBLNkubeWjPNoPw3LdgFfRF4=/0x0:1200x800/1820x1213/filters:focal(504x304:696x496):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/72943901/ghiblispread_StudioGhibli_ringer.0.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
-h2{
-    font-size: 37px;
-    background-color: #fff;
-    opacity: .80;
-    
+.avatar {
+    width: 40px;
 }
 
-.dude{
-    padding-top: 8px;
-    max-width: 40px;
-    max-height: 40px;
-}
-ul{
-    background-color:white;
-}
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: blue;
+    background-color: #333;
 }
 
 nav li {
@@ -37,14 +23,14 @@ nav li {
 
 nav li a {
     display: block;
-    color: blue;
+    color: white;
     text-align: center;
     padding: 8px 12px;
     text-decoration: none;
 }
 
 nav li a:hover {
-    background-color:blue;
+    background-color: #111;
 }
 
 .alert {
@@ -125,15 +111,11 @@ input[name=year] {
     border-radius: 5px;
     padding: 3px 5px;
 }
-p{
-    font-size: 30px;
-    text-align: center;
-    color: white;
-}
-.dancer {
+
+.totoro {
     display: block;
     margin: 0 auto;
-    height: 75px;
+    height: 100px;
 }
 
 footer {

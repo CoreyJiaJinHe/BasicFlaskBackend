@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--Kevin Ta-->
 <head>
     <meta charset="utf-8">
     <title>Pages containing {{ name }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
 </head>
 <body>
-    <h1>Direct Search <br>
-    </h1>
     <h2>
-    
-
-    <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.png') }}">
-    
-    Search Result List of: {{ name }}
+    <img alt="detective" class="dude" src="{{ url_for('static', filename='images/hi.png') }}">
+    Direct Search Result List of: {{ name }}
     </h2>
     {# Use the length filter to get the length of the movies variable #}
     <p>{{ countries|length }} Titles</p>
@@ -21,16 +17,19 @@
         {% for country in countries %}  {# Iterate through the movies variable #}
         <li>{{ country.Country }} - {{ country.Link }}
             <span class="float-right">
-                <a class="imdb" href="https://en.wikipedia.org/wiki/{{ country.Country }}" target="_blank" title="Find this movie on IMDb">IMDb</a>
+                <a class="imdb" href="https://en.wikipedia.org/wiki/{{ country.Country }}" target="_blank" title="Find this movie on IMDb">Go -></a>
             </span>
         </li>  
         {% endfor %}  {# Use the endfor tag to end the for statement #}
     </ul>
-    <img alt="Walking Totoro" class="totoro" src="{{ url_for('static', filename='images/totoro.gif') }}">
+    <img alt="squidward" class="dancer" src="{{ url_for('static', filename='images/dance.gif') }}">
+    
     <footer>
         <small>&copy; 2023 <a href="http://helloflask.com/book/3">ITEC 4020</a></small>
         <br>
-        <small>Hey! Why not use the better search engine at <a href="/bsearch/">this page </a>instead!?</small>
+        <div style="background-color:white;color:black;margin:10px;font-size:20px;">
+            <strong>Hey! Why not use the better search engine on <a href="/bsearch/">this page </a>instead!?</strong>
+        </div>
     </footer>
 </body>
 </html>

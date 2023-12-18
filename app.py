@@ -1,3 +1,5 @@
+#Corey He, Priyum Mistry, Kevin Ta
+
 from flask import Flask, make_response, render_template, request
 from markupsafe import escape
 import json
@@ -69,7 +71,6 @@ def bsearch():
                 res.set_cookie('history',newhistory, max_age=60*60*24*365*2)
  
         return res
-#        return render_template('search.html',name=keyword, countries=pages)
 
 def directsearch(keyword):
     inverted_index = get_inverted_index() # get the inverted indexes
@@ -116,7 +117,7 @@ def fuzzysearch(similarwords):
 
 def findclosest(keyword):
     #fuzzy search if no direct search
-    listofkeys=list(inverted_index.keys())
+    listofkeys=list(get_inverted_index.keys())
     pairedword=[]
     for word in listofkeys:
         distance=lev.distance(keyword,word)
@@ -131,61 +132,10 @@ def findclosest(keyword):
                     break
     return pairedword
 
+@app.route('/login/')
+def login():
+    return render_template('login.html')
 
-
-
-#testing code
-inverted_index=get_inverted_index()
-pages = []
-test=1
-keyword='test'
-if keyword in inverted_index:
-    for country in inverted_index[keyword]:
-        if len(pages):
-            checkcounter=0
-            for checklist in pages:
-                if (checklist['Country']==country[0]):
-                    checkcounter=1
-                    break
-                else:
-                    checkcounter=0
-            if (checkcounter==0):
-                pages.append({"Country":country[0],"Link":"https//en.wikipedia.org/wiki/"+str(country[0])})
-        else:
-            pages.append({"Country":country[0],"Link":"https//en.wikipedia.org/wiki/"+str(country[0])})
-else:
-    listofkeys=list(inverted_index.keys())
-    pairedword=[]
-    for word in listofkeys:
-        distance=lev.distance(keyword,word)
-        if (len(pairedword)<5):
-            appendstuff=[word,distance]
-            pairedword.append(appendstuff)
-        else:
-            for count in range(len(pairedword)):
-                comparedistance=list(pairedword[count])
-                if (comparedistance[1]>distance):
-                    pairedword[count]=[word,distance]
-                    break
-    for count in range(len(pairedword)):
-        theword=pairedword[count]
-        if (theword[1]<3):
-            for country in inverted_index[theword[0]]:
-                checkcounter=0
-                if len(pages):
-                    
-                    for checklist in pages:
-                        if (checklist['Country']==country[0]):
-                            checkcounter=1
-                            #print (checklist['Country']+"   the other:"+country[0])
-                            break
-                        else:
-                            checkcounter=0
-                            #print (checklist['Country']+"   the current country:"+country[0])                
-                    if (checkcounter==0):
-                        pages.append({"Country":country[0],"Link":"https//en.wikipedia.org/wiki/"+str(country[0])})
-                        
-                else:
-                    pages.append({"Country":country[0],"Link":"https//en.wikipedia.org/wiki/"+str(country[0])})
-
-print (pages)
+@app.route('/successlog',methods=['GET'])
+def successfullogin():
+    return render_template('successfullogin.html')
