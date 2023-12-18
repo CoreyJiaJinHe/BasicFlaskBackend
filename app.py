@@ -17,12 +17,12 @@ def index():
 def not_found(e):
     return render_template ("404.html", index='index.html')
 
-@app.route("/ball/")
-def ball():
+@app.route('/ballpage/')
+def ball_page():
     return render_template ("ball.html")
 
-@app.route("/secretpage/")
-def secret():
+@app.route('/secretpage/')
+def secret_page():
     return render_template ("secretpage.html")
 
 
