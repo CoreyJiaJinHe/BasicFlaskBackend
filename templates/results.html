@@ -12,9 +12,9 @@
     Direct Search Result List of: {{ name }}
     </h2>
     {# Use the length filter to get the length of the movies variable #}
-    <p>{{ countries|length }} Titles</p>
+    <p style="color:black;border-style:solid;background-color:white">{{ countries|length }} Results</p>
     <ul class="movie-list">
-        {% for country in countries %}  {# Iterate through the movies variable #}
+        {% for country in countries %} 
         <li>{{ country.Country }} - {{ country.Link }}
             <span class="float-right">
                 <a class="imdb" href="https://en.wikipedia.org/wiki/{{ country.Country }}" target="_blank" title="Find this movie on IMDb">Go -></a>

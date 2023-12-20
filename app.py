@@ -61,8 +61,9 @@ def bsearch():
     if (request.method =="GET"):
         return render_template('search.html')
     elif (request.method=="POST"):
-
         keyword = format(request.form.get('searchtext'))
+        keyword=keyword.lower()
+
         if (keyword=="history"):
             cookie = request.cookies.get("history")
             result=[]
@@ -75,11 +76,12 @@ def bsearch():
                 for searches in cookiedata:
                     result.append({"Search":searches})
             return render_template('recentsearches.html', searches=result)
-        
+
+        #This is a placeholder so that cookies can be made
+        res = make_response(render_template('search.html')) 
         pages=[]
         pages=directsearch(keyword)
-        res=''
-        if not pages:
+        if not len(pages):
             closestwords=findclosest(keyword)
             pages=fuzzysearch(closestwords)
             words=[]
@@ -87,14 +89,18 @@ def bsearch():
                 words.append(closestwords[count][0])
             words=', '.join(words)
             res=make_response(render_template('closestsearch.html',name=keyword,closestwords=words,countries=pages))
-        else:            
+        else:           
             res = make_response (render_template('search.html',name=keyword, countries=pages))
+        if not len (pages):
+            res=make_response(render_template('closestsearch.html',name=keyword))
+        
+        #if there is no cookie for history, make cookie
         if not request.cookies.get('history'):
                 res.set_cookie('history',keyword, max_age=60*60*24*365*2)
-        else:
+        else: #if there is, append new keyword into cookie data
                 newhistory=format(request.cookies.get('history'))+"," + keyword
                 res.set_cookie('history',newhistory, max_age=60*60*24*365*2)
- 
+
         return res
 
 def directsearch(keyword):
@@ -142,7 +148,8 @@ def fuzzysearch(similarwords):
 
 def findclosest(keyword):
     #fuzzy search if no direct search
-    listofkeys=list(get_inverted_index.keys())
+    inverted_index=get_inverted_index()
+    listofkeys=list(inverted_index.keys())
     pairedword=[]
     for word in listofkeys:
         distance=lev.distance(keyword,word)

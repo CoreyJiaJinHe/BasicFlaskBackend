@@ -22,7 +22,7 @@
         <button id='search' type="submit" style="width:5%;min-width:75px;" onclick="updateCookie()">Search</button>
     </form>
     <p>Your word was not found in the index. The closest words found are: {{closestwords}}</p>
-    <p>{{ countries|length }} Titles</p>
+    <p>{{ countries|length }} Results</p>
     <ul class="movie-list">
         {% for country in countries %}  {# Iterate through the movies variable #}
         <li>{{ country.Country }} - {{ country.Link }}
